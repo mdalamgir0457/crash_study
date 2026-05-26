@@ -1,0 +1,42 @@
+oday I practiced deploying Azure Resource Groups dynamically using Terraform and for_each.
+
+✅ Created Multiple Resource Groups
+✅ Used Terraform Variables (tfvars)
+✅ Learned Infrastructure as Code (IaC) concepts
+✅ Automated Azure resource deployment
+
+🔧 Terraform Code:
+
+resource "azurerm_resource_group" "resource_group" {
+
+  for_each = var.resource_name
+
+  name     = each.key
+  location = each.value
+}
+
+📂 variables.tf
+
+variable "resource_name" {
+  type = map(string)
+}
+
+📂 terraform.tfvars
+
+resource_name = {
+  rg1 = "eastus"
+  rg2 = "westus"
+  rg3 = "centralindia"
+}
+
+▶ Commands Used:
+
+terraform init
+terraform plan
+terraform apply
+
+This practice helped me understand:
+✔ Terraform for_each
+✔ Azure Resource Management
+✔ Dynamic Infrastructure Deployment
+✔ Infrastructure as Code (IaC)
